@@ -7,19 +7,28 @@ public class ConsolePrinter : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		int someNumber;
-		someNumber = 1;
-		float Location;
-		Location = 23.7676f;
+		float Location = 5.0f; // Distance in meters.
+		float homeLocation = 2.1f; // Distance in meters.
+		float distnace = homeLocation - Location;
 
-		print ("Hello World, Learning Unity is real fun");
+		print ("Hello World, Welcome to Go Home");
 		print ("I will finish the Go home chapter before \n 3 oclock today");
-		print ("The number is "+ someNumber);
 
-		print ("The real number is "+ Location);
+		print ("Distance : " + distnace);
 
+		if (Location > homeLocation) {
+			
+			print ("Go Back to get home");
+		} 
+
+		if(Location < homeLocation){
+			print ("Go forward to get home");
+		}
+
+		if (Location == homeLocation) {
+			print ("I am at home ");
+		}
 	}
-	
 	// Update is called once per frame
 	void Update () {
 		
