@@ -19,9 +19,17 @@ public class ConsolePrinter : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown (KeyCode.LeftArrow)) {
-			location = location + new Vector2 (-1.0f, 0);
+		CheckForMovement(KeyCode.LeftArrow, new Vector2(-1,0));
+		CheckForMovement(KeyCode.RightArrow, new Vector2(1,0));
+		CheckForMovement(KeyCode.UpArrow, new Vector2(0,1));
+		CheckForMovement(KeyCode.DownArrow, new Vector2(0,-1));
+	}
 
+	void CheckForMovement(KeyCode kc, Vector2 movementVector){
+	
+		if (Input.GetKeyDown (kc)) {
+		
+			location = location + movementVector;
 			Vector2 pathToHome = homeLocation - location;
 			print ("Distance to home : " + pathToHome.magnitude);
 
@@ -29,36 +37,7 @@ public class ConsolePrinter : MonoBehaviour {
 				print ("I am at home ");
 			}
 		}
-		if (Input.GetKeyDown (KeyCode.RightArrow)) {
 
-			location = location + new Vector2 (1.0f, 0);
-			Vector2 pathToHome = homeLocation - location;
-			print ("Distance to home : " + pathToHome.magnitude);
 
-			if (location == homeLocation) {
-				print ("I am at home ");
-			}
-		}
-
-		if (Input.GetKeyDown (KeyCode.UpArrow)) {
-			location = location + new Vector2 (0, 1);
-			Vector2 pathToHome = homeLocation - location;
-			print ("Distance to home : " + pathToHome.magnitude);
-
-			if (location == homeLocation) {
-				print ("I am at home ");
-			}
-		}
-		if (Input.GetKeyDown (KeyCode.DownArrow)) {
-
-			location = location + new Vector2 (0, -1);
-			Vector2 pathToHome = homeLocation - location;
-			print ("Distance to home : " + pathToHome.magnitude);
-
-			if (location == homeLocation) {
-				print ("I am at home ");
-			}
-
-		}
 	}
 }
